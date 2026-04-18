@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+
+<body>
+
+<h2 style="text-align:center;">📊 Resume Analysis Results</h2>
+<div style="width:60%; margin:20px auto; text-align:center;">
+    
+    <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="🔍 Search by name..."
+        onkeyup="filterResults()"
+        style="padding:10px; width:40%; margin-right:10px;"
+    >
+
+    <input 
+        type="number" 
+        id="minScore" 
+        placeholder="Min Score"
+        onkeyup="filterResults()"
+        style="padding:10px; width:20%;"
+    >
+
+</div>
+
+<!-- BAR GRAPH -->
+<div style="width:70%; margin:auto;">
+    <canvas id="chart"></canvas>
+</div>
+
+<script>
+    const names = {{ results | map(attribute='name') | list | tojson }};
+    const scores = {{ results | map(attribute='score') | list | tojson }};
+
+    window.onload = function () {
+        renderChart(names, scores);
+    };
+</script>
+
+<!-- RESULTS -->
+{% for r in results %}
+<div class="result-card rank-{{r.rank}}" data-name="{{r.name}}" data-score="{{r.score}}"></div>
+    {% if r.rank == 1 %}
+    <h3>🔥 BEST CANDIDATE</h3>
+    {% endif %}
+
+    <h3>🏆 Rank {{r.rank}} - {{r.name}}</h3>
+
+    <p><b>Score:</b> {{r.score}}%</p>
+
+    <!-- WHY -->
+    <p><b>Why this score?</b> {{r.reason}}</p>
+
+    <!-- Skills -->
+    <p><b>Matched Skills:</b> {{ r.matched | join(', ') }}</p>
+    <p><b>Missing Skills:</b> {{ r.missing | join(', ') }}</p>
+
+    <!-- Suggestions -->
+    <p><b>Suggested Skills to Learn:</b> {{ r.suggestions | join(', ') }}</p>
+
+    <!-- PIE CHART -->
+    <canvas id="pieChart{{loop.index}}" width="200"></canvas>
+
+    <script>
+        renderPieChart(
+            {{ r.matched|length }},
+            {{ r.missing|length }}
+        );
+    </script>
+
+</div>
+{% endfor %}
+
+<
+  <div class="download-box">
+    <a href="/download" class="download-btn">
+        ⬇ Download Full Report
+    </a>
+</div>
+
+</body>
+</html>

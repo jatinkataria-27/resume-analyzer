@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card big-card">
+        <h2>🚀 Resume Analyzer Dashboard</h2>
+        <p class="subtitle">Upload resumes & analyze against job requirements</p>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            <!-- Job Description -->
+            <label>📄 Job Description</label>
+            <textarea name="jd" placeholder="Paste job description here..." required></textarea>
+
+            <!-- File Upload -->
+            <label>📂 Upload Resumes</label>
+            <input type="file" name="resumes" multiple required>
+
+            <!-- Button -->
+            <button type="submit">Analyze Resumes</button>
+        </form>
+
+        <a href="/logout" class="logout-btn">Logout</a>
+    </div>
+
+</div>
+
+</body>
+</html>

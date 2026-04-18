@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+/* Center container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main Card */
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    width: 350px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.big-card {
+    width: 500px;
+}
+
+/* Headings */
+h2 {
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: gray;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Labels */
+label {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Inputs */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+textarea {
+    height: 100px;
+}
+
+/* Button */
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    border: none;
+  background: linear-gradient(135deg, #11998e, #38ef7d);
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Logout */
+.logout-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 12px;
+    background: red;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+/* Result cards */
+.result-card {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    width: 60%;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Rank colors */
+.rank-1 { border-left: 6px solid green; }
+.rank-2 { border-left: 6px solid orange; }
+.rank-3 { border-left: 6px solid red; }
+#searchInput, #minScore {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+/* Download Box */
+.download-box {
+    width: 40%;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+/* Button */
+.download-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    transition: 0.3s;
+}
+
+/* Hover Effect */
+.download-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.3);
+}
